@@ -140,36 +140,36 @@ def replay():
     cv.delete('all') #清除画布上所有内容
     drawBoard(cv)
     
-if __name__=='main':
-    #设置窗口
-    root=tk.Tk()
-    root.title("拼图游戏")
 
-    path,colwidth,rowheight,COL,ROW=SplitImage()
+path,colwidth,rowheight,COL,ROW=SplitImage()
 
-    steps=0
-    note=0
-    r1=None
-    c1=None
-    current_square=None
+#设置窗口
+root=tk.Tk()
+root.title("拼图游戏")
 
-    WIDTH=colwidth*COL
-    HEIGHT=rowheight*ROW
+steps=0
+note=0
+r1=None
+c1=None
+current_square=None
 
-    board=board_mk()
-    Pics=load_pics()
+WIDTH=colwidth*COL
+HEIGHT=rowheight*ROW
 
-    cv=tk.Canvas(root,bg='green',width=WIDTH,height=HEIGHT)
-    cv.bind('<Button-1>',switch)
-    cv.pack()
-    b1=tk.Button(root,text='单击以开始游戏',command=replay,width=20)
-    b1.pack()
-    lab1=tk.Label(root,text='选择一个拼图',width=60)
-    lab1.pack()
-    lab2=tk.Label(root,text='步数：'+str(steps),fg='red',width=20)
-    lab2.pack()
-    b2=tk.Button(root,text='结束游戏',command=eBtnClose,width=20)
-    b2.pack()
+board=board_mk()
+Pics=load_pics()
 
-    replay()
-    root.mainloop()
+cv=tk.Canvas(root,bg='green',width=WIDTH,height=HEIGHT)
+cv.bind('<Button-1>',switch)
+cv.pack()
+b1=tk.Button(root,text='单击以开始游戏',command=replay,width=20)
+b1.pack()
+lab1=tk.Label(root,text='选择一个拼图',width=60)
+lab1.pack()
+lab2=tk.Label(root,text='步数：'+str(steps),fg='red',width=20)
+lab2.pack()
+b2=tk.Button(root,text='结束游戏',command=eBtnClose,width=20)
+b2.pack()
+
+replay()
+root.mainloop()
